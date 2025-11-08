@@ -1,0 +1,34 @@
+name: Student Management workflow
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with: 
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Print working directory
+        run: pwd
+
+      - name: List project files
+        run: ls -la
+
+      - name: Echo a message
+        run: echo "Running a dummy step"
+
+      - name: Sleep for 2 seconds
+        run: sleep 2
